@@ -76,13 +76,13 @@ class Student
       end
   end
 
-  def self.all_students_in_grade_x(x)
+  def self.all_students_in_grade_x(grade)
     sql=
       "SELECT *
       FROM STUDENTS
       WHERE grade ?"
 
-      DB[:conn].execute(sql, x)
+      DB[:conn].execute(sql, grade)
       end
   end
 
