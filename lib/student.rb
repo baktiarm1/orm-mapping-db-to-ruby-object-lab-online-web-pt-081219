@@ -83,7 +83,7 @@ class Student
       WHERE grade ?"
 
       DB[:conn].execute(sql, grade)
-      end
+
   end
 
   def self.students_below_12th_grade
