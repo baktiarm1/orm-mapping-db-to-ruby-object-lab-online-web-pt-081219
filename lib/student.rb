@@ -25,12 +25,6 @@ class Student
   def self.find_by_name(name)
     # find the student in the database given a name
     # return a new instance of the Student class
-    # sql = <<-SQL
-    #   SELECT *
-    #   FROM students
-    #   WHERE name = ?
-    #   LIMIT 1
-    # SQL
     sql = <<-SQL
          SELECT *
          FROM students
@@ -40,7 +34,7 @@ class Student
 
       DB[:conn].execute(sql, name).map do |row|
         self.new_from_db(row)
-      end.first 
+      end.first
 
   end
 
@@ -69,4 +63,30 @@ class Student
     sql = "DROP TABLE IF EXISTS students"
     DB[:conn].execute(sql)
   end
+
+
+  def self.all_students_in_grade_9
+    sql= <<-SQL
+      SELECT *
+      FROM STUDENTS
+      WHERE grade = 9
+      SQL
+      DB[:conn].execute(sql)
+  end
+
+  def self.all_students_in_grade_x(grade)
+  end 
+
+  def self.students_below_12th_grade
+  end
+
+
+  def self.first_student_in_grade_10
+  end
+
+  def self.first_X_students_in_grade_10
+  end
+
+
+
 end
